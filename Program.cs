@@ -28,6 +28,9 @@ var fakeUser=new Faker<User>();
     .RuleFor(x=>x.LastName,f=>f.Person.LastName)
     .RuleFor(x=>x.Username,f=>f.Person.UserName)
     .RuleFor(x=>x.Email,f=>f.Person.Email)
+    .RuleFor(x=>x.BirthDate,f=>f.Person.DateOfBirth)
+    .RuleFor(x=>x.Country,f=>f.Address.Country())
+    .RuleFor(x=>x.City,f=>f.Address.City())
     ;
 
 app.Map("/", () => fakeUser.Generate());
